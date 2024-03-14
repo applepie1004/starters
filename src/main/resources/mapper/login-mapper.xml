@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.starters.comm.mapper.LoginMapper">
+    <select id="selectUserInfo" parameterType="string" resultType="com.example.starters.comm.vo.UserVO">
+        SELECT
+            USER_ID,
+            USER_EMAIL,
+            USER_PSWD,
+            USER_NM,
+            USER_TEL,
+            USE_AT
+        FROM TEMP1.TBL_USER
+        WHERE USER_ID = #{username}
+          AND USE_AT = 'Y'
+    </select>
+    <select id="selectListUserRole" parameterType="string" resultType="string">
+        SELECT
+            B.ROLE_NM
+        FROM
+            TEMP1.TBL_USER_ROLE_MAPPING A,
+            TEMP1.TBL_ROLE B
+        WHERE
+            A.ROLE_ID = B.ROLE_ID
+        AND USER_ID = #{username}
+    </select>
+
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <logger name="jdbc" level="OFF"/>
+    <logger name="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter" level="DEBUG"/>
+
+    <springProfile name="default">
+
+        <logger name="org.springframework.web" level="OFF"/>
+        <logger name="org.springframework.jdbc" level="OFF"/>
+        <logger name="org.mybatis.spring" level="ERROR"/>
+        <logger name="com.example.starters" level="INFO"/>
+
+        <logger name="jdbc" level="INFO"/>
+        <logger name="jdbc.sqlonly" level="INFO"/>
+        <logger name="jdbc.sqltiming" level="OFF"/>
+        <logger name="jdbc.resultsettable" level="OFF"/>
+        <logger name="jdbc.audit" level="OFF"/>
+        <logger name="jdbc.resultset" level="OFF"/>
+        <logger name="jdbc.connection" level="OFF"/>
+
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="hy">
+
+        <logger name="org.springframework.web" level="OFF"/>
+        <logger name="org.springframework.jdbc" level="OFF"/>
+        <logger name="org.mybatis.spring" level="ERROR"/>
+        <logger name="com.example.starters" level="INFO"/>
+
+        <logger name="jdbc" level="INFO"/>
+        <logger name="jdbc.sqlonly" level="OFF"/>
+        <logger name="jdbc.sqltiming" level="OFF"/>
+        <logger name="jdbc.resultsettable" level="OFF"/>
+        <logger name="jdbc.audit" level="OFF"/>
+        <logger name="jdbc.resultset" level="OFF"/>
+        <logger name="jdbc.connection" level="OFF"/>
+
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+
+</configuration>
