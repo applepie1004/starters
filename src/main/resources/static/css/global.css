@@ -1,1 +1,3 @@
 .error input, .error input:focus { background-color: #ffedef; border-color: #d50100; color: #d50100; }
+.input-style-1 p {display: none;}
+.input-style-1.error p {display: block;}

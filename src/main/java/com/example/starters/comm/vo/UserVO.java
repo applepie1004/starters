@@ -3,10 +3,11 @@ package com.example.starters.comm.vo;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter @Setter
-public class UserVO {
+public class UserVO implements Serializable{
     private String userId;
     private String userEmail;
     private String userPswd;
