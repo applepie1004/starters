@@ -28,7 +28,7 @@ public class WebSecurityConfig {
                 )
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/signup/**","/lib/**").permitAll()
+                        .requestMatchers("/signup/**","/sign/**","/lib/**").permitAll()
 //                        .requestMatchers("/h2-console").authenticated()
                         .anyRequest().authenticated()
                 )
