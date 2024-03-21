@@ -2,6 +2,7 @@ package com.example.starters.sign.controller;
 
 import com.example.starters.comm.ResultMap;
 import com.example.starters.sign.param.CheckStringParam;
+import com.example.starters.sign.param.SignUpParam;
 import com.example.starters.sign.service.SignService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,17 +27,41 @@ public class SignDataController {
             result.setData(signService.checkIdExist(param));
             result.setSuccess();
         } catch (Exception e) {
-            log.error("{}", e);
+            log.error("", e);
             result.setFailure();
         }
         return result;
     }
 
 
-    /** TODO 이메일 체크 */
+    /** 이메일 체크 */
+    @PostMapping("/check/email")
+    public ResultMap checkEmailExist(@RequestBody CheckStringParam param) {
+        ResultMap result = new ResultMap();
+        try{
+            result.setData(signService.checkEmailExist(param));
+            result.setSuccess();
+        } catch (Exception e) {
+            log.error("", e);
+            result.setFailure();
+        }
+        return result;
+    }
 
 
-    /** TODO 회원가입 */
+    /** 회원가입 */
+    @PostMapping("/signup")
+    public ResultMap signUp(@RequestBody SignUpParam param) {
+        ResultMap result = new ResultMap();
+        try{
+            signService.signUp(param);
+            result.setSuccess();
+        } catch (Exception e) {
+            log.error("", e);
+            result.setFailure();
+        }
+        return result;
+    }
 
 
 }

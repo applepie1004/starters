@@ -10,4 +10,17 @@
         WHERE
             A.USER_ID = #{checkString}
     </select>
+    <select id="selectEmailExist" resultType="int" parameterType="com.example.starters.sign.param.CheckStringParam">
+        SELECT
+            COUNT(*)
+        FROM
+            temp1.TBL_USER A
+        WHERE
+            A.USER_EMAIL = #{checkString}
+    </select>
+
+    <insert id="insertUser" parameterType="com.example.starters.sign.param.SignUpParam">
+        INSERT INTO TEMP1.TBL_USER(USER_ID, USER_EMAIL, USER_PSWD) VALUES
+        (#{id}, #{email}, #{password})
+    </insert>
 </mapper>
