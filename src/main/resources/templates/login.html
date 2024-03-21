@@ -55,15 +55,15 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="input-style-1" th:classappend="${param.error != null ? 'error' : null }">
-                                    <label>ID</label>
-                                    <input type="text" placeholder="ID" name="username">
+                                    <label for="username">ID</label>
+                                    <input type="text" placeholder="ID" name="username" id="username" />
                                 </div>
                             </div>
                             <!-- end col -->
                             <div class="col-12">
                                 <div class="input-style-1" th:classappend="${param.error != null ? 'error' : null }">
-                                    <label>Password</label>
-                                    <input type="password" placeholder="Password" name="password">
+                                    <label for="password">Password</label>
+                                    <input type="password" placeholder="Password" name="password" id="password">
                                     <p class="text-danger text-end" th:classappend="${param.error != null ? '' : 'd-none' }">You typed wrong ID or Password </p>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                             text-start text-md-end text-lg-start text-xxl-end
                             mb-30
                           ">
-                                    <a href="#0" class="hover-underline">Forgot Password?</a>
+                                    <a href="#" class="hover-underline">Forgot Password?</a>
                                 </div>
                             </div>
                             <!-- end col -->
