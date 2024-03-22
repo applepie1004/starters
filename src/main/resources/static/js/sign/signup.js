@@ -49,6 +49,8 @@ $(function($) {
                     /* false가 떨어져야 아이디가 없는 것 */
                     if(!res.DATA.isIdExist) {
                         checkIdDone();
+                    } else {
+                        errorMsg($id, 'id already exists');
                     }
                 },
                 error: function(e) {
@@ -65,9 +67,11 @@ $(function($) {
                     dataType: 'json',
                     contentType: 'application/json',
                     success: function(res) {
-                        /* false가 떨어져야 아이디가 없는 것 */
+                        /* false가 떨어져야 이메일이 없는 것 */
                         if(!res.DATA.isEmailExist) {
                             checkEmailDone();
+                        } else {
+                            errorMsg($email, 'email already exists');
                         }
                     },
                     error: function(e) {

@@ -16,4 +16,8 @@ public class UserVO implements Serializable{
     private String useAt;
     private List<String> userRoleList;
 
+    public UserVO(String userId, String userEmail) {
+        this.userId = userId;
+        this.userEmail = userEmail;
+    }
 }

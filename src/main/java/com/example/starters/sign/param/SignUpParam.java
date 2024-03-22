@@ -8,4 +8,5 @@ public class SignUpParam {
     private String id;
     private String email;
     private String password;
+    private String nm;
 }
