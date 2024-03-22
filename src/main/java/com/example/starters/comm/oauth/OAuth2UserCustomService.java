@@ -1,8 +1,5 @@
 package com.example.starters.comm.oauth;
 
-import com.example.starters.comm.mapper.LoginMapper;
-import com.example.starters.comm.security.CustomUserDetails;
-import com.example.starters.comm.vo.UserVO;
 import com.example.starters.sign.mapper.SignMapper;
 import com.example.starters.sign.param.CheckStringParam;
 import com.example.starters.sign.param.SignUpParam;
@@ -22,7 +19,6 @@ import java.util.UUID;
 public class OAuth2UserCustomService extends DefaultOAuth2UserService {
 
     private final SignMapper signMapper;
-    private final LoginMapper loginMapper;
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
@@ -53,8 +49,6 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
             signMapper.insertUser(sign);
         }
 
-        UserVO user = loginMapper.selectUserInfo(id);
-
-        new CustomUserDetails(user);
+        new OAuth2UserCustom(oAuth2User);
     }
 }

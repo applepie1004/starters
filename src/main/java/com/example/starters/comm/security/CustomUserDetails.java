@@ -1,6 +1,7 @@
 package com.example.starters.comm.security;
 
 import com.example.starters.comm.vo.UserVO;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -8,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+@Getter
 @RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails {
 
@@ -30,6 +32,9 @@ public class CustomUserDetails implements UserDetails {
     public String getUsername() {
         return userVO.getUserId();
     }
+    public String getUserEmail() {
+        return userVO.getUserEmail();
+    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -49,9 +54,6 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return "Y".equals(userVO.getUseAt());
-    }
-    public UserVO getUserVO() {
-        return this.userVO;
     }
 
 }
