@@ -12,7 +12,7 @@
         <logger name="com.example.starters" level="INFO"/>
 
         <logger name="jdbc" level="INFO"/>
-        <logger name="jdbc.sqlonly" level="INFO"/>
+        <logger name="jdbc.sqlonly" level="OFF"/>
         <logger name="jdbc.sqltiming" level="OFF"/>
         <logger name="jdbc.resultsettable" level="OFF"/>
         <logger name="jdbc.audit" level="OFF"/>

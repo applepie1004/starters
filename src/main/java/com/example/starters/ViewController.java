@@ -1,8 +1,10 @@
 package com.example.starters;
 
+import com.example.starters.comm.util.OAuth2UserUtil;
 import com.example.starters.comm.util.UserUtil;
 import com.example.starters.comm.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -18,7 +20,9 @@ public class ViewController {
     @GetMapping("/login")
     public String viewLogin() {
         UserVO user = UserUtil.getUserVO();
-        if(user != null) {
+        DefaultOAuth2User oAuth2User = OAuth2UserUtil.getOAuth2User();
+
+        if(user != null || oAuth2User != null) {
             return "redirect:/";
         }
         return "login";
@@ -27,7 +31,9 @@ public class ViewController {
     @GetMapping("/signup")
     public String viewSignup() {
         UserVO user = UserUtil.getUserVO();
-        if(user != null) {
+        DefaultOAuth2User oAuth2User = OAuth2UserUtil.getOAuth2User();
+
+        if(user != null || oAuth2User != null) {
             return "redirect:/";
         }
         return "signup";

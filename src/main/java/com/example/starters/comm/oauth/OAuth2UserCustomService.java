@@ -27,14 +27,14 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         OAuth2User user = super.loadUser(userRequest); // 요청을 바탕으로 유저 정보를 담은 객체 반환
-        saveOrUpdate(user);
+        save(user);
 
         return user;
     }
 
 
     // 유저가 없으면 유저 생성
-    private void saveOrUpdate(OAuth2User oAuth2User) {
+    private void save(OAuth2User oAuth2User) {
         Map<String, Object> attributes = oAuth2User.getAttributes();
 
         String uuid = UUID.randomUUID().toString().replace("-", "");

@@ -36,12 +36,12 @@ public class WebSecurityConfig {
                 )
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/signup/**","/sign/**","/lib/**", "/oauth2/**", "/login/oauth2/**").permitAll()
+                        .requestMatchers("/signup/**","/sign/**","/lib/**", "/error").permitAll()
 //                        .requestMatchers("/h2-console").authenticated()
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth -> oauth
-                        .loginPage(loginPage)
+                        .loginPage(loginPage).permitAll()
 //                        .redirectionEndpoint(redirectionEndpointConfig -> redirectionEndpointConfig
 //                                .baseUri("/login/oauth2/callback/**")
 //                        )
